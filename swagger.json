@@ -1,0 +1,53 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http"
+        ],
+        "tags": [
+          "handler"
+        ],
+        "operationId": "getHandler",
+        "responses": {
+          "default": {
+            "$ref": "#/responses/queryResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "QueryResponse": {
+      "description": "QueryResponse - tagged as a sub-struct for swagger purposes",
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "message": {
+          "description": "The detailed message",
+          "type": "string",
+          "x-go-name": "Message"
+        },
+        "status": {
+          "description": "The status",
+          "type": "string",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "testAPI"
+    }
+  },
+  "responses": {
+    "queryResponse": {
+      "schema": {
+        "$ref": "#/definitions/QueryResponse"
+      }
+    }
+  }
+}
